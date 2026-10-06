@@ -19,7 +19,7 @@
     --ground:#0A0E14; --surface:#10161F; --surface-2:#161F2B;
     --hairline:#213040; --hairline-soft:#18222F;
     --text:#EAF1F8; --muted:#8A9AAE; --faint:#5A6B7E;
-    --accent:#5AC8E0; --accent-strong:#8CE4F5; --accent-dim:rgba(90,200,224,.14);
+    --accent:#5AC8E0; --accent-strong:#8CE4F5; --accent-dim:rgba(90,200,224,.14); --on-accent:#04121A;
     --ok:#3FB950; --warn:#D9A227; --crit:#F0603F;
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;
     --mono:ui-monospace,"SF Mono","JetBrains Mono","Cascadia Code",Menlo,Consolas,monospace;
@@ -31,7 +31,7 @@
       --ground:#EDF1F5; --surface:#FFFFFF; --surface-2:#F6F8FB;
       --hairline:#DBE2EA; --hairline-soft:#E7ECF2;
       --text:#111820; --muted:#586675; --faint:#8794A3;
-      --accent:#0C7C9C; --accent-strong:#0A6B88; --accent-dim:rgba(12,124,156,.10);
+      --accent:#0C7C9C; --accent-strong:#0A6B88; --accent-dim:rgba(12,124,156,.10); --on-accent:#FFFFFF;
       --ok:#1C8A3A; --warn:#9A6B00; --crit:#C23B22;
       --shadow:0 24px 50px -24px rgba(20,40,60,.28);
     }
@@ -40,14 +40,14 @@
     --ground:#0A0E14; --surface:#10161F; --surface-2:#161F2B;
     --hairline:#213040; --hairline-soft:#18222F;
     --text:#EAF1F8; --muted:#8A9AAE; --faint:#5A6B7E;
-    --accent:#5AC8E0; --accent-strong:#8CE4F5; --accent-dim:rgba(90,200,224,.14);
+    --accent:#5AC8E0; --accent-strong:#8CE4F5; --accent-dim:rgba(90,200,224,.14); --on-accent:#04121A;
     --ok:#3FB950; --warn:#D9A227; --crit:#F0603F; --shadow:0 24px 60px -20px rgba(0,0,0,.6);
   }
   :root[data-theme="light"]{
     --ground:#EDF1F5; --surface:#FFFFFF; --surface-2:#F6F8FB;
     --hairline:#DBE2EA; --hairline-soft:#E7ECF2;
     --text:#111820; --muted:#586675; --faint:#8794A3;
-    --accent:#0C7C9C; --accent-strong:#0A6B88; --accent-dim:rgba(12,124,156,.10);
+    --accent:#0C7C9C; --accent-strong:#0A6B88; --accent-dim:rgba(12,124,156,.10); --on-accent:#FFFFFF;
     --ok:#1C8A3A; --warn:#9A6B00; --crit:#C23B22; --shadow:0 24px 50px -24px rgba(20,40,60,.28);
   }
 
@@ -111,13 +111,14 @@
   nav.links{display:flex; align-items:center; gap:28px;}
   nav.links a{color:var(--muted); font-size:.92rem; font-weight:500; transition:color .18s;}
   nav.links a:hover{color:var(--text);}
+  nav.links a.btn-primary, nav.links a.btn-primary:hover{color:var(--on-accent);}
   .btn{
     display:inline-flex; align-items:center; gap:8px; justify-content:center;
     font-weight:600; font-size:.95rem; border-radius:9px; cursor:pointer;
     padding:11px 18px; transition:transform .18s, background .18s, border-color .18s, color .18s;
     border:1px solid transparent; white-space:nowrap;
   }
-  .btn-primary{background:var(--accent); color:#04121a;}
+  .btn-primary{background:var(--accent); color:var(--on-accent);}
   .btn-primary:hover{transform:translateY(-1px); background:var(--accent-strong);}
   .btn-ghost{border-color:var(--hairline); color:var(--text); background:transparent;}
   .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
@@ -229,7 +230,7 @@
     border-radius:16px; padding:26px; position:relative;}
   .plan.feat{border-color:var(--accent); box-shadow:0 0 0 1px var(--accent), 0 30px 60px -30px var(--accent-dim);}
   .plan .tag{position:absolute; top:-11px; left:26px; font-family:var(--mono); font-size:.62rem; font-weight:600;
-    letter-spacing:.12em; text-transform:uppercase; color:#04121a; background:var(--accent); padding:4px 10px; border-radius:6px;}
+    letter-spacing:.12em; text-transform:uppercase; color:var(--on-accent); background:var(--accent); padding:4px 10px; border-radius:6px;}
   .plan .pname{font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent);}
   .plan .price{font-family:var(--mono); font-size:2.05rem; font-weight:650; margin:12px 0 2px; font-variant-numeric:tabular-nums; letter-spacing:-.02em;}
   .plan .price .per{font-size:.85rem; color:var(--muted); font-weight:400;}
